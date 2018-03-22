@@ -1,0 +1,26 @@
+{
+  "name": "sticker-album-fifa-world-cup-2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assets/scripts/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarissaAbreu/sticker-album-fifa-world-cup-2018.git"
+  },
+  "author": "Larissa Abreu, Afonso Pacifer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LarissaAbreu/sticker-album-fifa-world-cup-2018/issues"
+  },
+  "homepage": "https://github.com/LarissaAbreu/sticker-album-fifa-world-cup-2018#readme",
+  "devDependencies": {
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.12"
+  },
+  "dependencies": {
+    "firebase": "^4.12.0"
+  }
+}
