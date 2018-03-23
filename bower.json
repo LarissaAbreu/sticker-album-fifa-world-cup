@@ -1,0 +1,22 @@
+{
+  "name": "sticker-album-fifa-world-cup-2018",
+  "description": "",
+  "main": "public/index.html",
+  "authors": [
+    "Larissa Abreu",
+    "Afonso Pacifer"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/LarissaAbreu/sticker-album-fifa-world-cup",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "valle-input": "^0.3.0",
+    "valle-button": "^0.1.1"
+  }
+}

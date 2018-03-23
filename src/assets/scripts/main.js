@@ -1,6 +1,5 @@
 import firebase from 'firebase';
 import config from './config';
-import insertSticker from './insertSticker';
 import signInWithEmailAndPassword from './signInWithEmailAndPassword';
 import createUserWithEmailAndPassword from './createUserWithEmailAndPassword';
 import renderSectionTable from './renderSectionTable';

@@ -5,25 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Stickers album</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    .hide {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="import" href="../bower_components/polymer/polymer.html">
+  <link rel="import" href="../bower_components/valle-input/valle-input.html">
+  <link rel="import" href="../bower_components/valle-button/valle-button.html">
 </head>
 <body>
 
-  <main>
-    <section id="login">
-      <input id="email" type="email">
-      <label for="email">E-mail</label>
-      <input id="password" type="password">
-      <label for="password">Password</label>
-      <button id="signin">Sign in</button>
-      <button id="signup">Sign up</button>
+  <main class="main">
+    <section id="login" class="card">
+      <img class="card__img" src="assets\img\fifa-world-cup-russia.png" alt="Fifa world cup Russia 2018">
+      <h1 class="card__title">Sticker album</h1>
+      <valle-input id="email" class="card__input" type="email" label="E-mail" autofocus></valle-input>
+      <valle-input id="password" class="card__input" type="password" label="Password"></valle-input>
+      <valle-button id="signin" class="card__button card__button--signin">Sign in</valle-button>
+      <valle-button id="signup" class="card__button card__button--signup">Sign up</valle-button>
     </section>
     <section id="table" class="hide"></section>
   </main>
+  <footer class="footer">Larissa Abreu, Afonso Pacifer © 2018</footer>
   <script src="assets/scripts/bundle.js"></script>
 </body>
 </html>

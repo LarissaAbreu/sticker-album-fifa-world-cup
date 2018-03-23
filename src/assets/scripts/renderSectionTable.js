@@ -1,5 +1,6 @@
 import createElement from './createElement';
 import updateList from './updateList';
+import insertSticker from './insertSticker';
 
 const renderSectionTable = (sectionTable, sectionLogin, firebase, user) => {
   sectionTable.classList.remove('hide');
