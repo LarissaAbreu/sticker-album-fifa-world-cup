@@ -1,55 +1,32 @@
 import firebase from 'firebase';
 import config from './config';
 import insertSticker from './insertSticker';
-import updateList from './updateList';
+import signInWithEmailAndPassword from './signInWithEmailAndPassword';
+import createUserWithEmailAndPassword from './createUserWithEmailAndPassword';
+import renderSectionTable from './renderSectionTable';
 
-firebase.initializeApp(config);
-const dbRef = firebase.database().ref().child('stickers');
-const auth = firebase.auth();
-
-const addStickerButton = document.getElementById('addSticker');
-const addStickerInput = document.getElementById('sticker');
-const stickersList = document.getElementById('stickers');
+// View login
+const sectionLogin = document.getElementById('login');
 const emailInput = document.getElementById('email');
 const emailPassword = document.getElementById('password');
 const signInButton = document.getElementById('signin');
 const signUpButton = document.getElementById('signup');
-const logOutButton = document.getElementById('logout');
-const tableListStickers = document.getElementById('table');
-const sectionLogin = document.getElementById('login');
 
-signInButton.addEventListener('click', () => {
-  const email = emailInput.value;
-  const password = emailPassword.value;
+// View table
+const sectionTable = document.getElementById('table');
 
-  const signIn = auth.signInWithEmailAndPassword(email, password);
+firebase.initializeApp(config);
+const auth = firebase.auth();
 
-  signIn.catch(e => alert('Tá errado'));
-});
-
-signUpButton.addEventListener('click', () => {
-  const email = emailInput.value;
-  const password = emailPassword.value;
-
-  auth.createUserWithEmailAndPassword(email, password);
-});
-
-logOutButton.addEventListener('click', () => {
-  auth.signOut();
-});
+signInButton.addEventListener('click', () => signInWithEmailAndPassword(emailInput, emailPassword, auth));
+signUpButton.addEventListener('click', () => createUserWithEmailAndPassword(emailInput, emailPassword, auth));
 
 auth.onAuthStateChanged(user => {
   if (user) {
-    console.log('logado!');
-    tableListStickers.classList.remove('hide');
-    sectionLogin.classList.add('hide');
+    renderSectionTable(sectionTable, sectionLogin, firebase, user);
   } else {
-    console.log('deslogado');
-    tableListStickers.classList.add('hide');
+    sectionTable.classList.add('hide');
     sectionLogin.classList.remove('hide');
+    sectionTable.innerHTML = '';
   }
 });
-
-addStickerButton.addEventListener('click', () => insertSticker(dbRef, addStickerInput));
-
-updateList(dbRef, stickersList);
