@@ -4,7 +4,8 @@ const path = require('path');
 module.exports = {
   entry: {
     main: './src/assets/scripts/main.js',
-    table:'./src/assets/scripts/table.js'
+    table:'./src/assets/scripts/table.js',
+    common: './src/assets/scripts/common.js'
   },
   output: {
     path: path.resolve(__dirname, './public/assets/scripts'),
@@ -16,6 +17,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/
+      },
+      { 
+        test: /\.html$/,
+        loader: 'polymer-webpack-loader'
       }
     ]
   }
