@@ -2,10 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './src/assets/scripts/main.js',
+  entry: {
+    main: './src/assets/scripts/main.js',
+    table:'./src/assets/scripts/table.js'
+  },
   output: {
     path: path.resolve(__dirname, './public/assets/scripts'),
-    filename: 'bundle.js'
+    filename: '[name]bundle.js'
   },
   module: {
     rules: [

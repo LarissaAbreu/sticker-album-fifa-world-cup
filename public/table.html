@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stickers album</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="import" href="../bower_components/polymer/polymer.html">
+  <link rel="import" href="../bower_components/valle-input/valle-input.html">
+  <link rel="import" href="../bower_components/valle-button/valle-button.html">
+</head>
+<body>
+  <div class="container container--table">
+    <header class="header">
+        <div class="info">
+          <span>Welcome, <span id="user"></span></span>
+          <valle-button id="logout" class="logout">logout</valle-button>
+        </div>
+        <div class="info-stickers">
+          <span class="info-stickers__total">Total:&nbsp;<span id="totalStickers"></span>&nbsp;/ 682</span>
+          <span class="info-stickers__repeat">Repeat:&nbsp;<span id="repeatStickers"></span></span>
+        </div>
+    </header>
+    <main id="table" class="table">
+      <div class="form">
+        <valle-input class="form__input-sticker" id="inputAddSticker" label="Add sticker" type="number" autofocus></valle-input>
+        <valle-button class="form__add-sticker" id="buttonAddSticker">add</valle-button>
+      </div>
+      <ul id="listSticker" class="list-sticker"></ul>
+    </main>
+  </div>
+  <footer class="footer">Made with <span class="heart"></span> by Larissa Abreu and Afonso Pacifer © 2018</footer>
+  <script src="assets/scripts/tablebundle.js"></script>
+</body>
+</html>
