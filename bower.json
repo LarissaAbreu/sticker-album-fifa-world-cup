@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "valle-input": "^0.3.0",
+    "valle-input": "^0.3.1",
     "valle-button": "^0.1.1"
   }
 }

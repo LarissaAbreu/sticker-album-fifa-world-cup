@@ -13,8 +13,6 @@ const updateList = (dbRef, list) => {
         }
       }
     });
-  
-    // li.innerText = `${sticker.number} / Quant.: ${sticker.quant}`;
   });
   
   dbRef.on('child_changed', snap => {
@@ -33,8 +31,6 @@ const updateList = (dbRef, list) => {
         }
       }
     });
-  
-    // stickerChanged.innerText = `${sticker.number} / Quant.: ${sticker.quant}`;
   });
   
   // dbRef.on('child_removed', snap => {

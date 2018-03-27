@@ -58,6 +58,15 @@ auth.onAuthStateChanged(user => {
 
     });
     
+    inputAddSticker.addEventListener('keydown', (e) => {
+
+      const pressEnter = e.which === 13 || e.keyCode === 13;
+
+      if (pressEnter) {
+        e.preventDefault();
+        insertSticker(dbRef, inputAddSticker);
+      }
+    });
     buttonAddSticker.addEventListener('click', () => insertSticker(dbRef, inputAddSticker));
     buttonLogOut.addEventListener('click', () => auth.signOut());
   } else {
