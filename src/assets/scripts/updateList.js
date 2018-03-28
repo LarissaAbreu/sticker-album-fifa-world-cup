@@ -7,10 +7,6 @@ const updateList = (dbRef, list) => {
     list.forEach((sticker) => {
       if (newSticker.number == sticker.number) {
         sticker.classList.add('list-sticker__sticker--pasted');
-        if (newSticker.quant > 1) {
-          const quant = <span className="list-sticker__sticker__quant">{newSticker.quant - 1}</span>;
-          sticker.appendChild(quant);
-        }
       }
     });
   });
@@ -24,20 +20,25 @@ const updateList = (dbRef, list) => {
         if (newSticker.quant == 2) {
           const quant = <span className="list-sticker__sticker__quant">{newSticker.quant - 1}</span>;
           sticker.appendChild(quant);
-        } else {
+        } else if (newSticker.quant > 2) {
           const span = sticker.querySelector('span');
-
           span.innerText = newSticker.quant - 1;
+        } else if (newSticker.quant <= 1) {
+          sticker.innerText = newSticker.number;
         }
       }
     });
   });
   
-  // dbRef.on('child_removed', snap => {
-  //   const stickerRemoved = document.getElementById(snap.key);
-  
-  //   stickerRemoved.remove();
-  // });
+  dbRef.on('child_removed', snap => {
+    const stickerRemoved = snap.val();
+
+    list.forEach((sticker) => {
+      if (stickerRemoved.number == sticker.number) {
+        sticker.classList.remove('list-sticker__sticker--pasted');
+      }
+    });
+  });
 }
 
 export default updateList;

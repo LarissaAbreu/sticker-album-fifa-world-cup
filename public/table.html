@@ -23,8 +23,10 @@
     </header>
     <main id="table" class="table">
       <div class="form">
-        <valle-input class="form__input-sticker" id="inputAddSticker" label="Add sticker" type="tel" maxlength="3" autofocus pattern="^[0-681]$" errortext="Invalid number"></valle-input>
+        <valle-input class="form__input-sticker" id="inputAddSticker" label="Add sticker" type="tel" maxlength="3" autofocus errortext="Invalid number" helpertext="Insert new sticker"></valle-input>
         <valle-button class="form__add-sticker" id="buttonAddSticker">add</valle-button>
+        <valle-input class="form__input-remove-sticker" id="inputRemoveSticker" label="Remove sticker" type="tel" maxlength="3" errortext="Invalid number" helpertext="Insert duplicate"></valle-input>
+        <valle-button class="form__remove-sticker" id="buttonRemoveSticker">remove</valle-button>
       </div>
       <ul id="listSticker" class="list-sticker"></ul>
     </main>

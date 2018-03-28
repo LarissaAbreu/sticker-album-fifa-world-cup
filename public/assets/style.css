@@ -124,12 +124,22 @@ body {
 }
 
 .form {
-  align-items: flex-end;
+  align-items: center;
   display: flex;
   justify-content: flex-end;
 }
 
-.form__input-sticker {
+.form__input-remove-sticker {
+  margin-left: 16px;
+}
+
+.form__remove-sticker {
+  margin-left: 16px;
+  --primary-color: #9a3f3f;
+}
+
+.form__input-sticker,
+.form__input-remove-sticker {
   max-width: 100px;
   --valle-input-color: #22396f;
 }
@@ -227,8 +237,4 @@ body {
 @keyframes pulse {
     from {transform: rotate(-135deg) scale(1);}
     to   {transform: rotate(-135deg) scale(1.2);}
-}
-
-.hide {
-  display: none;
 }

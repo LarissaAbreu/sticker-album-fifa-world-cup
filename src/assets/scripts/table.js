@@ -3,6 +3,7 @@ import config from './config';
 import insertSticker from './insertSticker';
 import updateList from './updateList';
 import createList from './createList';
+import deleteSticker from './deleteSticker';
 
 const sectionTable = document.getElementById('table');
 const inputAddSticker = document.getElementById('inputAddSticker');
@@ -12,6 +13,8 @@ const buttonLogOut = document.getElementById('logout');
 const userEmail = document.getElementById('user');
 const totalStickers = document.getElementById('totalStickers');
 const repeatStickers = document.getElementById('repeatStickers');
+const inputRemoveSticker = document.getElementById('inputRemoveSticker');
+const buttonRemoveSticker = document.getElementById('buttonRemoveSticker');
 
 createList(listSticker);
 
@@ -57,6 +60,28 @@ auth.onAuthStateChanged(user => {
       }
 
     });
+
+    const removeError = (input) => {
+      const valueInput = input.value;
+
+      if (valueInput == '') {
+        input.error = false;
+      }
+    };
+
+    inputRemoveSticker.addEventListener('keydown', (e) => {
+
+      const pressEnter = e.which === 13 || e.keyCode === 13;
+
+      if (pressEnter) {
+        e.preventDefault();
+        deleteSticker(dbRef, inputRemoveSticker);
+      }
+    });
+
+    inputRemoveSticker.addEventListener('blur', () => removeError(inputRemoveSticker));
+
+    buttonRemoveSticker.addEventListener('click', () => deleteSticker(dbRef, inputRemoveSticker));
     
     inputAddSticker.addEventListener('keydown', (e) => {
 
@@ -67,6 +92,9 @@ auth.onAuthStateChanged(user => {
         insertSticker(dbRef, inputAddSticker);
       }
     });
+
+    inputAddSticker.addEventListener('blur', () => removeError(inputAddSticker));
+
     buttonAddSticker.addEventListener('click', () => insertSticker(dbRef, inputAddSticker));
     buttonLogOut.addEventListener('click', () => auth.signOut());
   } else {
